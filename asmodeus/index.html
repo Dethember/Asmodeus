@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMODEUS — 2D Fighting Moves Demo</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px;
+    background: #0b0710; color: #e8d9c8;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  h1 {
+    margin: 12px 0 0; font-size: 42px; letter-spacing: 10px;
+    color: #ff5a28; text-shadow: 0 0 18px rgba(255,90,40,.6), 0 2px 0 #000;
+  }
+  .sub { color: #8a7a6a; font-size: 13px; letter-spacing: 3px; }
+  canvas {
+    border: 1px solid #3a2028; border-radius: 8px;
+    box-shadow: 0 0 40px rgba(255,90,40,.15), inset 0 0 60px #000;
+    max-width: 96vw;
+  }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 700px; }
+  button {
+    background: linear-gradient(#2a161c, #1a0d12); color: #ffb08a;
+    border: 1px solid #5a2a22; border-radius: 6px; padding: 9px 16px;
+    font-size: 14px; cursor: pointer; letter-spacing: 1px;
+  }
+  button:hover { background: linear-gradient(#3a2028, #241218); color: #ffd9c0; border-color: #ff5a28; }
+  .keys { color: #6a5a50; font-size: 12px; }
+  kbd { background:#241218; border:1px solid #4a2a24; border-radius:4px; padding:1px 6px; }
+</style>
+</head>
+<body>
+  <h1>ASMODEUS</h1>
+  <div class="sub">LORD OF THE BURNING STAFF &nbsp;·&nbsp; SKELETAL 2D ENGINE</div>
+
+  <canvas id="stage" width="960" height="640"></canvas>
+
+  <div class="controls">
+    <button onclick="demo.api.strike()">⚔ Staff Strike (J)</button>
+    <button onclick="demo.api.cast()">🔮 Orb Cast (K)</button>
+    <button onclick="demo.api.kick()">🦵 Kick (L)</button>
+    <button onclick="demo.api.jump()">⬆ Jump (Space)</button>
+    <button onclick="demo.api.hit()">💥 Hit (H)</button>
+    <button onclick="demo.api.victory()">👑 Victory</button>
+  </div>
+  <div class="keys">
+    <kbd>A</kbd>/<kbd>D</kbd> walk &nbsp; <kbd>←</kbd>/<kbd>→</kbd> turn &amp; walk &nbsp;·&nbsp;
+    all moves are procedural — edit <code>MOVES</code> in <code>asmodeus.js</code>
+  </div>
+
+  <script src="asmodeus.js"></script>
+  <script>
+    const demo = new AsmodeusDemo(document.getElementById('stage'));
+    demo.loadImages(() => requestAnimationFrame((n) => demo.tick(n)));
+  </script>
+</body>
+</html>

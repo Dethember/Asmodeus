@@ -1,0 +1,18 @@
+{
+  "name": "Asmodeus",
+  "author": "myali",
+  "canvasSpace": [1024, 1536],
+  "groundY": 1500,
+  "drawOrder": ["wing", "torso", "legs", "skirt", "staff", "head", "arm"],
+  "markers": { "orb": [818, 330] },
+  "parts": {
+    "root":  { "parent": null,      "pos": [0, 0],     "pivot": [560, 700] },
+    "torso": { "parent": "root",    "pos": [495, 398], "pivot": [560, 700] },
+    "wing":  { "parent": "torso",   "pos": [198, 240], "pivot": [480, 420] },
+    "skirt": { "parent": "torso",   "pos": [370, 645], "pivot": [560, 700] },
+    "head":  { "parent": "torso",   "pos": [324, 15],  "pivot": [552, 396] },
+    "legs":  { "parent": "root",    "pos": [412, 1176],"pivot": [560, 700] },
+    "arm":   { "parent": "torso",   "pos": [510, 543], "pivot": [540, 615] },
+    "staff": { "parent": "arm",     "pos": [730, 225], "pivot": [540, 615] }
+  }
+}
